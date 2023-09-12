@@ -2,6 +2,11 @@ from datetime import datetime
 from time import sleep
 import json
 import random
+import logging
+
+# TODO: set up logging
+log_file = "cc_generator.log"
+logging.basicConfig(filename=log_file, level=logging.INFO, format="%(asctime)s - %(levelname)s: %(message)s")
 
 # List of valid credit card number prefixes
 prefixes = ['4', '51', '52', '53', '54', '55', '34', '37', '6011', '30', '36', '38', '3528', '3589']
@@ -118,8 +123,7 @@ def gen_loop(loops):
 if __name__ == '__main__':
     print("Welcome to CC Generator! By Smoodie")
     performance_mode = int(input("Choose a performance mode:\n1-Ultra, 2-High, 3-Balanced, 4-Medium, 5-Low\n>"))
-    delay = performance_mode / 1000.0
-
+    delay = performance_mode / 1000.0 if performance_mode != 0 else 0
     num_valid_cards = int(input("How many valid credit cards do you want to generate?\n>"))
 
     gen_loop(num_valid_cards)
