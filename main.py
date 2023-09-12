@@ -142,4 +142,4 @@ if __name__ == '__main__':
                 json_file.write(formatted_credit_card_info)
             print(f"Data saved to {file_name}")
         except Exception as e:
-            print(f"An error occurred while saving the JSON file: {e}")
+            input(f"An error occurred while saving the JSON file: {e}")
